@@ -6,6 +6,7 @@ import ContentWrapper from './ContentWrapper';
 import GenresInDb from './GenresInDb';
 import LastMovieInDb from './LastMovieInDb';
 import Chart from './Chart';
+import SearchMovies from './SearchMovies';	
 import NotFound from './NotFound';
 
 function SideBar(){
@@ -59,6 +60,13 @@ function SideBar(){
                         <span>Tables</span></Link>
                 </li>
 
+                 {/*<!-- Nav Item - SearchMovies -->*/}
+                 <li className="nav-item">
+                    <Link className="nav-link" to="/SearchMovies">
+                        <i className="fas fa-fw fa-table"></i>
+                        <span>Search</span></Link>
+                </li>
+
                 {/*<!-- Divider -->*/}
                 <hr className="sidebar-divider d-none d-md-block"/>
             </ul>
@@ -69,6 +77,7 @@ function SideBar(){
                 <Route  path='/GenresInDb' element = {<GenresInDb/>} />
                 <Route  path='/LastMovieInDb' element = {<LastMovieInDb/>} />
                 <Route  path='/Chart' element = {<Chart/>} />
+                <Route  path='/SearchMovies' element = {<SearchMovies/>} />
                 <Route path="*" element={<NotFound />} />
 
             </Routes>
