@@ -1,13 +1,13 @@
 import React from 'react';
 import { useEffect, useState, useRef } from 'react';
-import noPoster from '../assets/images/mandalorian.jpg';
+//import noPoster from '../assets/images/mandalorian.jpg';
 
 // Credenciales de API
 const apiKey = 'e24ea09d';
 
 function SearchPizzas(){
 
-const [keyword, setKeyword] = useState('Muzarella');
+const [keyword, setKeyword] = useState('');
 
 const [pizzas, setPizzas] = useState([]) ;
 
@@ -15,12 +15,10 @@ const [pizzas, setPizzas] = useState([]) ;
 		fetch(`http://localhost:8080/api/products`)
 		.then(response => response.json())
 		.then(data => {	
-			setPizzas(data.products)
-		})
+			setPizzas(data.products.filter(pizza => pizza.name.toLowerCase().includes(keyword.toLowerCase())))
+			})
 		.catch(error => console.error(error))
 	}, [keyword])
-
-	console.log(pizzas)
 
 	const inputTag = useRef();
 
@@ -65,9 +63,9 @@ const [pizzas, setPizzas] = useState([]) ;
 												<div className="text-center">
 													<img 
 														className="img-fluid px-3 px-sm-4 mt-3 mb-4" 
-														src={'/img'}
+														src={pizza.image}
 														alt={pizza.name} 
-														style={{ width: '90%', height: '400px', objectFit: 'cover' }} 
+														style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
 													/>
 												</div>
 												<p>{pizza.description}</p>
