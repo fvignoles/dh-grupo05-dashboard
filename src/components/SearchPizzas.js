@@ -12,11 +12,7 @@ const [keyword, setKeyword] = useState('Muzarella');
 const [pizzas, setPizzas] = useState([]) ;
 
 	useEffect(() => {
-		fetch(`http://localhost:8080/api/products`, {
-	        'mode': 'cors',
-	        'headers': {
-            'Access-Control-Allow-Origin': '*',
-		}})
+		fetch(`http://localhost:8080/api/products`)
 		.then(response => response.json())
 		.then(data => {	
 			setPizzas(data.products)
@@ -69,7 +65,7 @@ const [pizzas, setPizzas] = useState([]) ;
 												<div className="text-center">
 													<img 
 														className="img-fluid px-3 px-sm-4 mt-3 mb-4" 
-														src={pizza.detail}
+														src={'/img'}
 														alt={pizza.name} 
 														style={{ width: '90%', height: '400px', objectFit: 'cover' }} 
 													/>
