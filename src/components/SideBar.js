@@ -1,12 +1,12 @@
 import React from 'react';
 import image from '../assets/images/logo-DH.png';
-import {Link,Switch,Route,Routes} from 'react-router-dom';
+import {Link,Route,Routes} from 'react-router-dom';
 
 import ContentWrapper from './ContentWrapper';
 import GenresInDb from './GenresInDb';
 import LastMovieInDb from './LastMovieInDb';
 import Chart from './Chart';
-import SearchMovies from './SearchMovies';	
+import SearchPizzas from './SearchPizzas';	
 import NotFound from './NotFound';
 
 function SideBar(){
@@ -60,11 +60,11 @@ function SideBar(){
                         <span>Tables</span></Link>
                 </li>
 
-                 {/*<!-- Nav Item - SearchMovies -->*/}
+                 {/*<!-- Nav Item - SearchPizzas -->*/}
                  <li className="nav-item">
-                    <Link className="nav-link" to="/SearchMovies">
+                    <Link className="nav-link" to="/SearchPizzas">
                         <i className="fas fa-fw fa-table"></i>
-                        <span>Search</span></Link>
+                        <span>Buscar Pizzas</span></Link>
                 </li>
 
                 {/*<!-- Divider -->*/}
@@ -77,7 +77,7 @@ function SideBar(){
                 <Route  path='/GenresInDb' element = {<GenresInDb/>} />
                 <Route  path='/LastMovieInDb' element = {<LastMovieInDb/>} />
                 <Route  path='/Chart' element = {<Chart/>} />
-                <Route  path='/SearchMovies' element = {<SearchMovies/>} />
+                <Route  path='/SearchPizzas' element = {<SearchPizzas/>} />
                 <Route path="*" element={<NotFound />} />
 
             </Routes>

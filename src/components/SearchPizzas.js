@@ -5,24 +5,30 @@ import noPoster from '../assets/images/mandalorian.jpg';
 // Credenciales de API
 const apiKey = 'e24ea09d';
 
-function SearchMovies(){
+function SearchPizzas(){
 
-const [keyword, setKeyword] = useState('avengers');
+const [keyword, setKeyword] = useState('Muzarella');
 
-const [movies, setMovies] = useState([]) ;
+const [pizzas, setPizzas] = useState([]) ;
 
 	useEffect(() => {
-		fetch(`http://www.omdbapi.com/?s=${keyword}&apikey=${apiKey}`)
+		fetch(`http://localhost:8080/api/products`, {
+	        'mode': 'cors',
+	        'headers': {
+            'Access-Control-Allow-Origin': '*',
+		}})
 		.then(response => response.json())
 		.then(data => {	
-			setMovies(data.Search)
+			setPizzas(data.products)
 		})
 		.catch(error => console.error(error))
 	}, [keyword])
 
+	console.log(pizzas)
+
 	const inputTag = useRef();
 
-	const searchMovie = async e => {
+	const searchPizza = async e => {
 		e.preventDefault();
 		const inputValue = inputTag.current.value;
 		setKeyword(inputValue);
@@ -37,38 +43,38 @@ const [movies, setMovies] = useState([]) ;
 					<div className="row my-4">
 						<div className="col-12 col-md-6">
 							{/* Buscador */}
-							<form method="GET" onSubmit={searchMovie}>
+							<form method="GET" onSubmit={searchPizza}>
 								<div className="form-group">
-									<label htmlFor="">Buscar por título:</label>
+									<label htmlFor="">Buscar Pizza:</label>
 									<input type="text" className="form-control" ref={inputTag} />
 								</div>
-								<button className="btn btn-info">Search</button>
+								<button className="btn btn-info">Buscar</button>
 							</form>
 						</div>
 					</div>
 					<div className="row">
 						<div className="col-12">
-							<h2>Películas para la palabra: {keyword}</h2>
+							<h2>Nombre de la pizza : {keyword}</h2>
 						</div>
 						{/* Listado de películas */}
 						{
-							movies.length > 0 && movies.map((movie, i) => {
+							pizzas.length > 0 && pizzas.map((pizza, i) => {
 								return (
 									<div className="col-sm-6 col-md-3 my-4" key={i}>
 										<div className="card shadow mb-4">
 											<div className="card-header py-3">
-												<h5 className="m-0 font-weight-bold text-gray-800">{movie.Title}</h5>
+												<h5 className="m-0 font-weight-bold text-gray-800">{pizza.name}</h5>
 											</div>
 											<div className="card-body">
 												<div className="text-center">
 													<img 
 														className="img-fluid px-3 px-sm-4 mt-3 mb-4" 
-														src={movie.Poster}
-														alt={movie.Title} 
+														src={pizza.detail}
+														alt={pizza.name} 
 														style={{ width: '90%', height: '400px', objectFit: 'cover' }} 
 													/>
 												</div>
-												<p>{movie.Year}</p>
+												<p>{pizza.description}</p>
 											</div>
 										</div>
 									</div>
@@ -76,7 +82,7 @@ const [movies, setMovies] = useState([]) ;
 							})
 						}
 					</div>
-					{ movies.length === 0 && <div className="alert alert-warning text-center">No se encontraron películas</div>}
+					{ pizzas.length === 0 && <div className="alert alert-warning text-center">No se encontraron productos</div>}
 				</>
 				:
 				<div className="alert alert-danger text-center my-4 fs-2">Eyyyy... ¿PUSISTE TU APIKEY?</div>
@@ -85,4 +91,4 @@ const [movies, setMovies] = useState([]) ;
 	)
 }
 
-export default SearchMovies;
+export default SearchPizzas;
