@@ -1,12 +1,13 @@
 import React from 'react';
-import image from '../assets/images/logo-DH.png';
+import image from '../assets/images/logo.jpg';
 import {Link,Route,Routes} from 'react-router-dom';
 
 import ContentWrapper from './ContentWrapper';
 import GenresInDb from './GenresInDb';
 import LastMovieInDb from './LastMovieInDb';
 import Chart from './Chart';
-import SearchPizzas from './SearchPizzas';	
+import SearchPizzas from './SearchPizzas';
+import SearchUsers from './SearchUsers';	
 import NotFound from './NotFound';
 
 function SideBar(){
@@ -18,7 +19,7 @@ function SideBar(){
                 {/*<!-- Sidebar - Brand -->*/}
                 <Link className="sidebar-brand d-flex align-items-center justify-content-center" to="/">
                     <div className="sidebar-brand-icon">
-                        <img className="w-100" src={image} alt="Digital House"/>
+                        <img className="w-50 h-50" src={image} alt="Digital House"/>
                     </div>
                 </Link>
 
@@ -29,7 +30,8 @@ function SideBar(){
                 <li className="nav-item active">
                     <Link className="nav-link" to="/">
                         <i className="fas fa-fw fa-tachometer-alt"></i>
-                        <span>Dashboard - DH movies</span></Link>
+                        <span>Tablero de Comando</span>
+                    </Link>
                 </li>
 
                 {/*<!-- Divider -->*/}
@@ -67,6 +69,13 @@ function SideBar(){
                         <span>Buscar Pizzas</span></Link>
                 </li>
 
+                {/*<!-- Nav Item - SearchUsers -->*/}
+                <li className="nav-item">
+                    <Link className="nav-link" to="/SearchUsers">
+                        <i className="fas fa-fw fa-table"></i>
+                        <span>Buscar Usuarios</span></Link>
+                </li>
+
                 {/*<!-- Divider -->*/}
                 <hr className="sidebar-divider d-none d-md-block"/>
             </ul>
@@ -78,10 +87,10 @@ function SideBar(){
                 <Route  path='/LastMovieInDb' element = {<LastMovieInDb/>} />
                 <Route  path='/Chart' element = {<Chart/>} />
                 <Route  path='/SearchPizzas' element = {<SearchPizzas/>} />
-                <Route path="*" element={<NotFound />} />
+                <Route  path='/SearchUsers' element = {<SearchUsers/>} />
+                <Route  path="*" element={<NotFound />} />
 
             </Routes>
-
 
         </>
     )

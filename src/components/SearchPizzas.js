@@ -1,9 +1,5 @@
 import React from 'react';
 import { useEffect, useState, useRef } from 'react';
-//import noPoster from '../assets/images/mandalorian.jpg';
-
-// Credenciales de API
-const apiKey = 'e24ea09d';
 
 function SearchPizzas(){
 
@@ -32,7 +28,6 @@ const [pizzas, setPizzas] = useState([]) ;
 	return(
 		<div className="container-fluid">
 			{
-				apiKey !== '' ?
 				<>
 					<div className="row my-4">
 						<div className="col-12 col-md-6">
@@ -50,7 +45,6 @@ const [pizzas, setPizzas] = useState([]) ;
 						<div className="col-12">
 							<h2>Nombre de la pizza : {keyword}</h2>
 						</div>
-						{/* Listado de películas */}
 						{
 							pizzas.length > 0 && pizzas.map((pizza, i) => {
 								return (
@@ -76,10 +70,10 @@ const [pizzas, setPizzas] = useState([]) ;
 							})
 						}
 					</div>
-					{ pizzas.length === 0 && <div className="alert alert-warning text-center">No se encontraron productos</div>}
+					{ pizzas.length === 0 && <div className="alert alert-warning text-center">
+					No se encontraron productos !!!</div>
+					}
 				</>
-				:
-				<div className="alert alert-danger text-center my-4 fs-2">Eyyyy... ¿PUSISTE TU APIKEY?</div>
 			}
 		</div>
 	)
