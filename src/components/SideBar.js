@@ -20,7 +20,7 @@ function SideBar(){
                 {/*<!-- Sidebar - Brand -->*/}
                 <Link className="sidebar-brand d-flex align-items-center justify-content-center" to="/">
                     <div className="sidebar-brand-icon">
-                        <img className="w-50 h-50" src={image} alt="Digital House"/>
+                        <img className="w-50 h-50" src={image} alt="El Paraiso de la Pizza"/>
                     </div>
                 </Link>
 
@@ -31,7 +31,7 @@ function SideBar(){
                 <li className="nav-item active">
                     <Link className="nav-link" to="/">
                         <i className="fas fa-fw fa-tachometer-alt"></i>
-                        <span>Tablero de Comando</span>
+                        <span>Usuario & Productos</span>
                     </Link>
                 </li>
 
@@ -39,7 +39,21 @@ function SideBar(){
                 <hr className="sidebar-divider"/>
 
                 {/*<!-- Heading -->*/}
-                <div className="sidebar-heading">Actions</div>
+                <div className="sidebar-heading">El Paraiso de las Pizzas</div>
+
+                {/*<!-- Nav Item - SearchUsers -->*/}
+                <li className="nav-item">
+                    <Link className="nav-link" to="/SearchUsers">
+                        <i className="fas fa-fw fa-table"></i>
+                        <span>Usuarios</span></Link>
+                </li>
+
+                 {/*<!-- Nav Item - SearchPizzas -->*/}
+                 <li className="nav-item">
+                    <Link className="nav-link" to="/SearchPizzas">
+                        <i className="fas fa-fw fa-table"></i>
+                        <span>Pizzas</span></Link>
+                </li>
 
                 {/*<!-- Nav Item - Pages -->*/}
                 <li className="nav-item">
@@ -70,20 +84,6 @@ function SideBar(){
                     <Link className="nav-link" to="/Chart">
                         <i className="fas fa-fw fa-table"></i>
                         <span>Tables</span></Link>
-                </li>
-
-                 {/*<!-- Nav Item - SearchPizzas -->*/}
-                 <li className="nav-item">
-                    <Link className="nav-link" to="/SearchPizzas">
-                        <i className="fas fa-fw fa-table"></i>
-                        <span>Buscar Pizzas</span></Link>
-                </li>
-
-                {/*<!-- Nav Item - SearchUsers -->*/}
-                <li className="nav-item">
-                    <Link className="nav-link" to="/SearchUsers">
-                        <i className="fas fa-fw fa-table"></i>
-                        <span>Buscar Usuarios</span></Link>
                 </li>
 
                 {/*<!-- Divider -->*/}
