@@ -34,7 +34,7 @@ SmallCard.defaultProps = {
 /* PROPTYPES */
 
 SmallCard.propTypes = {
-    atritutes: PropTypes.shape({
+    attributes: PropTypes.shape({
         title: PropTypes.string.isRequired,
         color: PropTypes.string.isRequired,
         cuantity: PropTypes.oneOfType([
