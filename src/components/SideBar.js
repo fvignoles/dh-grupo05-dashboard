@@ -4,7 +4,8 @@ import {Link,Route,Routes} from 'react-router-dom';
 
 import ContentWrapper from './ContentWrapper';
 import GenresInDb from './GenresInDb';
-import LastMovieInDb from './LastMovieInDb';
+import LastUserInDb from './LastUserInDb';
+import LastProductInDb from './LastProductInDb';
 import Chart from './Chart';
 import SearchPizzas from './SearchPizzas';
 import SearchUsers from './SearchUsers';	
@@ -50,10 +51,19 @@ function SideBar(){
 
                 {/*<!-- Nav Item - Charts -->*/}
                 <li className="nav-item">
-                    <Link className="nav-link" to="LastMovieInDb">
+                    <Link className="nav-link" to="LastUserInDb">
                         <i className="fas fa-fw fa-chart-area"></i>
-                        <span>Última Película</span></Link>
+                        <span>Último Usuario</span></Link>
                 </li>
+
+                                {/*<!-- Nav Item - Charts -->*/}
+                                <li className="nav-item">
+                    <Link className="nav-link" to="LastProductInDb">
+                        <i className="fas fa-fw fa-chart-area"></i>
+                        <span>Última Pizza</span></Link>
+                </li>
+
+
 
                 {/*<!-- Nav Item - Tables -->*/}
                 <li className="nav-item">
@@ -84,7 +94,8 @@ function SideBar(){
             <Routes>
                 <Route  exact path='/' element = {<ContentWrapper/>} />
                 <Route  path='/GenresInDb' element = {<GenresInDb/>} />
-                <Route  path='/LastMovieInDb' element = {<LastMovieInDb/>} />
+                <Route  path='/LastUserInDb' element = {<LastUserInDb/>} />
+                <Route  path='/LastProductInDb' element = {<LastProductInDb/>} />
                 <Route  path='/Chart' element = {<Chart/>} />
                 <Route  path='/SearchPizzas' element = {<SearchPizzas/>} />
                 <Route  path='/SearchUsers' element = {<SearchUsers/>} />
