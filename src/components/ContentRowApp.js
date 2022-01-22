@@ -4,63 +4,82 @@ import { useEffect, useState, /*useRef*/ } from 'react';
 
 /*  Cada set de datos es un objeto literal */
 
-/* <!-- Pizzas in DB --> */
+/* <!-- Pizzas and Categories in DB --> */
 
-// const quantityPizzas = undefined;
+function ContentRowApp() {
 
-function ContentRowApp(){
+    const [pizzas, setPizzas] = useState([]);
+    const [doughs, setDoughs] = useState([]);
+    const [sizes, setSizes] = useState([]);
 
-    const [pizzas, setPizzas] = useState([]) ;
+    useEffect(() => {
+        fetch(`http://localhost:8080/api/products`)
+            .then(response => response.json())
+            .then(data => {
+                setPizzas(data)
+                setDoughs(Object.keys(data.countByCategory.doughs).length)
+                setSizes(Object.keys(data.countByCategory.sizes).length)
+            })
 
-	useEffect(() => {
-		fetch(`http://localhost:8080/api/products`)
-		.then(response => response.json())
-		.then(data => {	
-			setPizzas(data)
-			})
-		.catch(error => console.error(error))
-	}, [])
+            .catch(error => console.error(error))
+    }, [])
 
-    
-let pizzasInDB = {
-    title: 'Pizzas en la base de datos',
-    color: 'primary', 
-    cuantity: pizzas.count?? 'no llega',	
-    icon: 'fa-clipboard-list'
+/* <!-- Users in DB --> */
+
+    const [users, setUsers] = useState([]);
+
+    useEffect(() => {
+        fetch(`http://localhost:8080/api/users`)
+            .then(response => response.json())
+            .then(data => {
+                setUsers(data.count)
+            })
+            .catch(error => console.error(error))
+    }, [])
+
+
+    let pizzasInDB = {
+        title: 'Cantidad de Pizzas',
+        color: 'primary',
+        cuantity: pizzas.count ?? 'no llega',
+        icon: 'fa-clipboard-list'
     }
-    
-    const [users, setUsers] = useState([]) ;
 
-	useEffect(() => {
-		fetch(`http://localhost:8080/api/users`)
-		.then(response => response.json())
-		.then(data => {	
-			setUsers(data.count)
-			})
-		.catch(error => console.error(error))
-	}, [])
+    let doughsInDB = {
+        title: 'Cantidad Categoría Masa',
+        color: 'info',
+        cuantity: doughs ?? 'no llega',
+        icon: 'fa-clipboard-list'
+    }
 
-    
+    let sizesInDB = {
+        title: 'Cantidad Categoría Tamaño ',
+        color: 'warning',
+        cuantity: sizes ?? 'no llega',
+        icon: 'fa-clipboard-list'
+    }
+
+
     /* <!-- Users quantity --> */
-    
-    let usersQuantity = {
-    title:'Cantidad de usuarios' ,
-    color:'warning',
-    cuantity: users,
-    icon:'fa-user-check'
+
+    let usersInDb = {
+        title: 'Cantidad de usuarios',
+        color: 'success',
+        cuantity: users,
+        icon: 'fa-user-check'
     }
-  
-    let cartProps = [pizzasInDB, usersQuantity];
-    
+
+    let cartProps = [pizzasInDB, usersInDb, doughsInDB, sizesInDB];
+
 
     return (
-    
-        <div className="row">
-            
-            {cartProps.map( (element, i) => {
 
-                return <SmallCard {...element} key={i}/>
-            
+        <div className="row">
+
+            {cartProps.map((element, i) => {
+
+                return <SmallCard {...element} key={i} />
+
             })}
 
         </div>
