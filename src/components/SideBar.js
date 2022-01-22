@@ -3,10 +3,11 @@ import image from '../assets/images/logo.jpg';
 import {Link,Route,Routes} from 'react-router-dom';
 
 import ContentWrapper from './ContentWrapper';
-import GenresInDb from './GenresInDb';
+import SizesInDb from './SizesInDb';
+import DoughsInDb from './DoughsInDb';
 import LastUserInDb from './LastUserInDb';
 import LastProductInDb from './LastProductInDb';
-import Chart from './Chart';
+import ChartProducts from './ChartProducts';
 import SearchPizzas from './SearchPizzas';
 import SearchUsers from './SearchUsers';	
 import NotFound from './NotFound';
@@ -57,11 +58,21 @@ function SideBar(){
 
                 {/*<!-- Nav Item - Pages -->*/}
                 <li className="nav-item">
-                    <Link className="nav-link collapsed" to="GenresInDb">
+                    <Link className="nav-link collapsed" to="SizesInDb">
                         <i className="fas fa-fw fa-folder"></i>
-                        <span>Generos</span>
+                        <span>Tamaños</span>
                     </Link>
                 </li>
+
+             {/*<!-- Nav Item - Pages -->*/}
+             <li className="nav-item">
+                    <Link className="nav-link collapsed" to="DoughsInDb">
+                        <i className="fas fa-fw fa-folder"></i>
+                        <span>Masas</span>
+                    </Link>
+                </li>
+
+
 
                 {/*<!-- Nav Item - Charts -->*/}
                 <li className="nav-item">
@@ -77,13 +88,11 @@ function SideBar(){
                         <span>Última Pizza</span></Link>
                 </li>
 
-
-
                 {/*<!-- Nav Item - Tables -->*/}
                 <li className="nav-item">
-                    <Link className="nav-link" to="/Chart">
+                    <Link className="nav-link" to="/ChartProducts">
                         <i className="fas fa-fw fa-table"></i>
-                        <span>Tables</span></Link>
+                        <span>Tabla Pizzas</span></Link>
                 </li>
 
                 {/*<!-- Divider -->*/}
@@ -93,16 +102,15 @@ function SideBar(){
             
             <Routes>
                 <Route  exact path='/' element = {<ContentWrapper/>} />
-                <Route  path='/GenresInDb' element = {<GenresInDb/>} />
+                <Route  path='/SizesInDb' element = {<SizesInDb/>} />
+                <Route  path='/DoughsInDb' element = {<DoughsInDb/>} />               
                 <Route  path='/LastUserInDb' element = {<LastUserInDb/>} />
                 <Route  path='/LastProductInDb' element = {<LastProductInDb/>} />
-                <Route  path='/Chart' element = {<Chart/>} />
+                <Route  path='/ChartProducts' element = {<ChartProducts/>} />
                 <Route  path='/SearchPizzas' element = {<SearchPizzas/>} />
                 <Route  path='/SearchUsers' element = {<SearchUsers/>} />
                 <Route  path="*" element={<NotFound />} />
-
             </Routes>
-
         </>
     )
 }
