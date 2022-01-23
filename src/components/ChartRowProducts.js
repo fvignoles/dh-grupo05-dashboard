@@ -6,9 +6,8 @@ function ChartRowProducts(props){
                 <tr>
                     <td>{props.name}</td>
                     <td>{props.description}</td>
-                 {/*   <td>{props.sizes.size_name}</td>
-                    <td>{props.doughs}</td> */}
-                   
+                    <td>{props.size}</td>
+                    <td>{props.dough}</td>         
                 </tr>
             )
     }       

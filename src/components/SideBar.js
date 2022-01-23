@@ -8,6 +8,7 @@ import DoughsInDb from './DoughsInDb';
 import LastUserInDb from './LastUserInDb';
 import LastProductInDb from './LastProductInDb';
 import ChartProducts from './ChartProducts';
+import ChartUsers from './ChartUsers';
 import SearchPizzas from './SearchPizzas';
 import SearchUsers from './SearchUsers';	
 import NotFound from './NotFound';
@@ -95,6 +96,13 @@ function SideBar(){
                         <span>Tabla Pizzas</span></Link>
                 </li>
 
+                                <li className="nav-item">
+                    <Link className="nav-link" to="/ChartUsers">
+                        <i className="fas fa-fw fa-table"></i>
+                        <span>Tabla Usuarios</span></Link>
+                </li>
+
+
                 {/*<!-- Divider -->*/}
                 <hr className="sidebar-divider d-none d-md-block"/>
             </ul>
@@ -107,6 +115,7 @@ function SideBar(){
                 <Route  path='/LastUserInDb' element = {<LastUserInDb/>} />
                 <Route  path='/LastProductInDb' element = {<LastProductInDb/>} />
                 <Route  path='/ChartProducts' element = {<ChartProducts/>} />
+                <Route  path='/ChartUsers' element = {<ChartUsers/>} />
                 <Route  path='/SearchPizzas' element = {<SearchPizzas/>} />
                 <Route  path='/SearchUsers' element = {<SearchUsers/>} />
                 <Route  path="*" element={<NotFound />} />

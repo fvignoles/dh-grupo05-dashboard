@@ -1,50 +1,41 @@
 import React from 'react';
-import ChartRowProducts from './ChartRowProducts';
+import ChartRowUsers from './ChartRowUsers';
 import { useEffect, useState} from 'react';
 
-function ChartProducts (){
+function ChartUsers (){
 
-    const [pizzas, setPizzas] = useState([]) ;
+    const [users, setUsers] = useState([]) ;
 
 	useEffect(() => {
-		fetch(`http://localhost:8080/api/products`)
+		fetch(`http://localhost:8080/api/users`)
 		.then(response => response.json())
 		.then(data => {	
-			setPizzas(data.products)})
+			setUsers(data.users)})
 		.catch(error => console.error(error))
 	}, []);
 
     return (
         /* <!-- DataTales Example --> */
         <div className="card shadow mb-4">
-        <div className="card-header py-3">
-          <h5 className="m-0 font-weight-bold text-gray-800" width="100%">
-            Tabla de Pizzas
-          </h5>
-          </div>
             <div className="card-body">
                 <div className="table-responsive">
                     <table className="table table-bordered" id="dataTable" width="100%" cellSpacing="0">
                         <thead>
                             <tr>
                                 <th>Nombre</th>
-                                <th>Descripción</th>
-                                <th>Tamaño</th>
-                                <th>Masas</th>
+                                <th>E-mail</th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
                                 <th>Nombre</th>
-                                <th>Descripción</th>
-                                <th>Tamaño</th>
-                                <th>Masas</th>
-                            </tr>
+                                <th>E-mail</th>
+                           </tr>
                         </tfoot>
                         <tbody>
                             {
-                            pizzas.map( ( row , i) => {
-                                return <ChartRowProducts { ...row} key={i}/>
+                            users.map( ( row , i) => {
+                                return <ChartRowUsers { ...row} key={i}/>
                             
                             })
                             }
@@ -59,4 +50,4 @@ function ChartProducts (){
 }
 
 
-export default ChartProducts;
+export default ChartUsers;

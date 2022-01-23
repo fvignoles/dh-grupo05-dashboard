@@ -16,10 +16,8 @@ function ContentRowCenter(){
 
             {/*<!-- Doughs in DB -->*/}
             <DoughsInDb />
-                        {/*<!-- Doughs in DB -->*/}
-                        <SizesInDb />
-
-
+            {/*<!-- Doughs in DB -->*/}
+            <SizesInDb />
         </div>
     )
 }

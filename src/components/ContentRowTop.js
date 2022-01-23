@@ -1,7 +1,8 @@
 import React from 'react';
 import ContentRowCenter from './ContentRowCenter';
 import ContentRowApp from './ContentRowApp';
-import Chart from './Chart';
+import ChartProducts from './ChartProducts';
+import ChartUsers from './ChartUsers';
 
 function ContentRowTop(){
     return(
@@ -9,13 +10,14 @@ function ContentRowTop(){
 				{/*<!-- Content Row Top -->*/}
 				<div className="container-fluid">
 					<div className="d-sm-flex aligns-items-center justify-content-between mb-4">
-						<h1 className="h3 mb-0 text-gray-800">Tablero de comando</h1>
+						<h1 className="h3 mb-0 text-gray-800">Tablero: Usuarios & Productos</h1>
 					</div>
 				
 					{/*<!-- Content Row Movies-->*/}
 					<ContentRowApp />
 					<ContentRowCenter />
-					<Chart />
+					<ChartProducts />
+					<ChartUsers />
 	
 				</div>
 				{/*<!--End Content Row Top-->*/}
