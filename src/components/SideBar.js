@@ -1,5 +1,5 @@
 import React from 'react';
-import image from '../assets/images/logo.jpg';
+import image from '../assets/images/logo_transparent_black.png';
 import {Link,Route,Routes} from 'react-router-dom';
 
 import ContentWrapper from './ContentWrapper';
@@ -22,7 +22,7 @@ function SideBar(){
                 {/*<!-- Sidebar - Brand -->*/}
                 <Link className="sidebar-brand d-flex align-items-center justify-content-center" to="/">
                     <div className="sidebar-brand-icon">
-                        <img className="w-50 h-50" src={image} alt="El Paraiso de la Pizza"/>
+                        <img className="w-50 h-60" src={image} alt="El Paraiso de la Pizza"/>
                     </div>
                 </Link>
 
